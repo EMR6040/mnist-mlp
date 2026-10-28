@@ -53,12 +53,21 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 
 Ön işleme: gri tonlama → arka plan çıkarma (aydınlatma düzeltme) → eşikleme → çizgi kalınlaştırma → rakamları ayırma → 20 px'e ölçekleme → 28×28 tuvale ağırlık merkezine göre yerleştirme → MNIST ortalama/std ile normalizasyon.
 
-### Deneme
+### Deneme 1
 | | |
 |---|---|
 | Beklenen | 25979701010 |
 | Tahmin | 25373701010 |
 | Doğru rakam | 9/11 (%81.8) |
+
+### Deneme 2 (keçeli kalem, daha oval 9'lar)
+| | |
+|---|---|
+| Beklenen | 25979701010 |
+| Tahmin | 25373701010 |
+| Doğru rakam | 9/11 (%81.8) |
+
+[Hangi rakamlar hatalı çıktı? Güven değerleri neydi? 9'ların güveni Deneme 1'e göre değişti mi?]
 
 3. ve 5. rakamlar (9) hatalı tahmin edildi (3. rakam: 3 → %79.8, 9 ilk üçte yok; 5. rakam: 3 → %73.6, 9 → %25.4). Doğru tahminlerin güveni %97-100, hatalı olanların %74-80 idi.
 
