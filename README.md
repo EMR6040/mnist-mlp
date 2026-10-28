@@ -4,7 +4,7 @@
 **Ad Soyad:** Emrullah Yeşilkaya  **Öğrenci No:** 25979701010
 
 ## 1. Çalıştırma
-`Yapay_Sinir_Ağları_HW1.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir.
+`Yapay_Sinir_Ağları_HW1.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir. Hazır eğitilmiş model kullanılmamıştır, CNN kullanılmamıştır; model sıfırdan eğitilmiştir
 
 ## 2. Veri ayrımı
 | Küme | Adet | Kullanım |
