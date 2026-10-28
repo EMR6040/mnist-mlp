@@ -43,7 +43,7 @@ Mimari: 784 → 256 (ReLU) → 128 (ReLU) → 10. Toplam 235.146 parametre.
 | Test accuracy (en iyi model) | %97.74 |
 | Eğitim süresi | 239.9 sn |
 
-![Eğitim grafikleri](results/training_curves.png)
+![Eğitim grafikleri](training_curves.png)
 
 ### Yorum
 Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de en düşük değerine (0.0855) ulaşıp sonra dalgalanarak yükseldi. Train accuracy (%99.7) ile validation accuracy (%97.7) arasındaki fark, modelin eğitim verisini ezberlemeye başladığını (overfitting) gösteriyor. Validation loss kötüleşirken validation accuracy yaklaşık %97.5'te kaldı: loss modelin kararlılığını da ölçtüğü için, yanlış tahminlerde aşırı özgüven loss'u artırabilir. Test sonuçları validation'a çok yakın olduğundan model seçimi test verisine iyi genelleniyor.
@@ -62,12 +62,12 @@ Görseller: `my_digits/`. Beyaz kağıda kurşun kalemle yazıldı.
 
 3. ve 5. rakamlar (9) hatalı tahmin edildi (3. rakam: 3 → %79.8, 9 ilk üçte yok; 5. rakam: 3 → %73.6, 9 → %25.4). Doğru tahminlerin güveni %97-100, hatalı olanların %74-80 idi.
 
-![Tahminler](results/own_digits_prediction.png)
+![Tahminler](own_digits_prediction.png)
 
 
 
 ### MNIST ile karşılaştırma
-![Karşılaştırma](results/compare_with_mnist.png)
+![Karşılaştırma](compare_with_mnist.png)
 
 9'ların köşeli olması sebebiyle, 3 veya 5'e benzetildiği düşünülmektedir.
 
