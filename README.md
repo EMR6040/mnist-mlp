@@ -75,4 +75,5 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 - 11 örnek küçük bir örneklem olduğu için %81.8 genel bir başarı oranı değil, bir gözlemdir.
 - Her iki denemede de aynı iki rakam (9) hatalı çıktı, bu yüzden hata tesadüf değil, sistematik görünüyor.
 - MLP görüntüyü 784 bağımsız piksel olarak gördüğü için çizgi kalınlığı ve piksel konumu gibi küçük değişikliklere duyarlı. Bu, CNN'e kıyasla bir sınırlılık, ama bu ödevde CNN kullanılmadı.
+  
 NOT: Repoyu colabde açmanız tavsiye edilir!
