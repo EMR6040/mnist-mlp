@@ -63,15 +63,25 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 
 
 ### Deneme 2 (keçeli kalem, daha oval 9'lar)
+
 | | |
 |---|---|
 | Beklenen | 25979701010 |
-| Tahmin | 25373701010 |
-| Doğru rakam | 9/11 (%81.8) |
+| Tahmin | 25974750170 |
+| Doğru rakam | 6/11 (%54.5) |
 
-- Kendi el yazımda Deneme 1'de %81.8 (9/11), Deneme 2'de %54.5 (6/11) doğru rakam elde ettim. İki fotoğrafta kalem, çizgi kalınlığı, 9'ların şekli ve rakamlar arası boşluk aynı anda değiştiği için düşüşün nedenini tek bir etkene bağlananamaktadır.
-- Deneme 2'de oval yazdığım ilk 9 doğru tanındı, ikincisi tanınmadı. 11 rakamlık örneklemle bu farkın yazı şeklinden mi, ayırma hatasından mı geldiğini söylenememektir.
+Oval yazdığım ilk 9 (3. rakam) doğru tanındı (%72.6), ikinci 9 (5. rakam) 4 olarak tahmin edildi (%90.1). 7.-10. rakamlarda beklenen `0 1 0 1` dizisi için `5 0 1 7` tahmin edildi (güvenler: %44.7, %100, %98.2, %48.0).
 
+![Deneme 2 tahminleri](own_digits_prediction_2.png)
+
+![Deneme 2 - 9'ların MNIST ile karşılaştırması](compare_with_mnist_deneme2.png)
+
+Deneme 2'deki 28×28 görsellere baktığımda 5. rakamın (9) solunda fotoğraftaki dikey bir çizginin (kağıt kıvrımı/kenarı) ön işlemede mürekkep olarak algılanıp kırpmaya dahil edildiğini gördüm. Bu yüzden 9 küçülmüş ve model onu 4 olarak tahmin etti (%90.1; 9'a %6.8). Bu hata, modelin 9'u tanıyamamasından çok ön işleme adımından kaynaklanıyor görünüyor. Oval yazdığım 3. rakam (9) ise MNIST 9'larına benzer biçimde kırpıldı ve doğru tanındı (%72.6), ancak 3'e de %27.4 olasılık verildi.
+
+### MNIST ile karşılaştırma
+![Karşılaştırma](compare_with_mnist.png)
+
+Deneme 1'de 9'ların 3'e benzetilmesini, 9'ların kuyruğunun köşeli yazılmasına bağlayan bir hipotezim vardı, ama bunu doğrulayacak bir test yapmadım. Deneme 2'de oval yazdığım 9 doğru tanındı, ancak 3'e de belirgin olasılık verdi. Bu, 9/3 karışıklığının yazı şekliyle ilişkili olabileceğine işaret ediyor, fakat kesin bir sonuç değil.
 
 
 ![Tahminler](own_digits_prediction.png)
@@ -88,5 +98,6 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 - 11 örnek küçük bir örneklem olduğu için %81.8 genel bir başarı oranı değil, bir gözlemdir.
 - Her iki denemede de aynı iki rakam (9) hatalı çıktı, bu yüzden hata tesadüf değil, sistematik görünüyor.
 - MLP görüntüyü 784 bağımsız piksel olarak gördüğü için çizgi kalınlığı ve piksel konumu gibi küçük değişikliklere duyarlı. Bu, CNN'e kıyasla bir sınırlılık, ama bu ödevde CNN kullanılmadı.
+- Deneme 2'deki hataların en az bir tanesi (5. rakam), fotoğraftaki bir çizginin ön işlemede rakama dahil edilmesinden kaynaklanıyor. Gerçek dünya verisinde başarı yalnızca modele değil, görüntü hazırlama adımına da bağlıdır.
   
 NOT: Repoyu colabde açmanız tavsiye edilir!
