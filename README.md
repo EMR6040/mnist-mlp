@@ -1,7 +1,7 @@
 # mnist-mlp
 # MNIST ile MLP Tabanlı El Yazısı Rakam Tanıma
 
-**Emrullah Yeşilkaya:** < >  **Öğrenci No:** 25979701010 
+**Emrullah Yeşilkaya:**  **Öğrenci No:** 25979701010 
 
 ## 1. Çalıştırma
 `mnist_mlp.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir. Veri otomatik indirilir. Hazır eğitilmiş model kullanılmamıştır, CNN kullanılmamıştır.
@@ -52,7 +52,7 @@ Görseller: `my_digits/`. Beyaz kağıda kurşun kalemle yazıldı.
 
 Ön işleme: gri tonlama → arka plan çıkarma (aydınlatma düzeltme) → eşikleme → çizgi kalınlaştırma → rakamları ayırma → 20 px'e ölçekleme → 28×28 tuvale ağırlık merkezine göre yerleştirme → MNIST ortalama/std ile normalizasyon.
 
-### Deneme 1
+### Deneme
 | | |
 |---|---|
 | Beklenen | 25979701010 |
