@@ -48,7 +48,8 @@ Mimari: 784 → 256 (ReLU) → 128 (ReLU) → 10. Toplam 235.146 parametre.
 Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de en düşük değerine (0.0855) ulaşıp sonra dalgalanarak yükseldi. Train accuracy (%99.7) ile validation accuracy (%97.7) arasındaki fark, modelin eğitim verisini ezberlemeye başladığını (overfitting) gösteriyor. Validation loss kötüleşirken validation accuracy yaklaşık %97.5'te kaldı: loss modelin kararlılığını da ölçtüğü için, yanlış tahminlerde aşırı özgüven loss'u artırabilir. Test sonuçları validation'a çok yakın olduğundan model seçimi test verisine iyi genelleniyor.
 
 ## 4. Kendi el yazım
-![Görseller](IMG_20261028_194729.png,IMG_20261028_201146.png). Beyaz kağıda kurşun kalemle yazıldı.
+![Görseller](IMG_20261028_194729.png). Beyaz kağıda kurşun kalemle yazıldı.
+![Görseller](IMG_20261028_201146.png). Beyaz kağıda keçeli kalemle yazıldı. 9'lar daha oval yazıldı.
 
 Ön işleme: gri tonlama → arka plan çıkarma (aydınlatma düzeltme) → eşikleme → çizgi kalınlaştırma → rakamları ayırma → 20 px'e ölçekleme → 28×28 tuvale ağırlık merkezine göre yerleştirme → MNIST ortalama/std ile normalizasyon.
 
