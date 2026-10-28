@@ -67,7 +67,7 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 | Tahmin | 25373701010 |
 | Doğru rakam | 9/11 (%81.8) |
 
-[Hangi rakamlar hatalı çıktı? Güven değerleri neydi? 9'ların güveni Deneme 1'e göre değişti mi?]
+
 
 3. ve 5. rakamlar (9) hatalı tahmin edildi (3. rakam: 3 → %79.8, 9 ilk üçte yok; 5. rakam: 3 → %73.6, 9 → %25.4). Doğru tahminlerin güveni %97-100, hatalı olanların %74-80 idi.
 
