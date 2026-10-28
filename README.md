@@ -60,6 +60,8 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 | Tahmin | 25373701010 |
 | Doğru rakam | 9/11 (%81.8) |
 
+
+
 ### Deneme 2 (keçeli kalem, daha oval 9'lar)
 | | |
 |---|---|
@@ -67,9 +69,10 @@ Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de e
 | Tahmin | 25373701010 |
 | Doğru rakam | 9/11 (%81.8) |
 
+- Kendi el yazımda Deneme 1'de %81.8 (9/11), Deneme 2'de %54.5 (6/11) doğru rakam elde ettim. İki fotoğrafta kalem, çizgi kalınlığı, 9'ların şekli ve rakamlar arası boşluk aynı anda değiştiği için düşüşün nedenini tek bir etkene bağlananamaktadır.
+- Deneme 2'de oval yazdığım ilk 9 doğru tanındı, ikincisi tanınmadı. 11 rakamlık örneklemle bu farkın yazı şeklinden mi, ayırma hatasından mı geldiğini söylenememektir.
 
 
-3. ve 5. rakamlar (9) hatalı tahmin edildi (3. rakam: 3 → %79.8, 9 ilk üçte yok; 5. rakam: 3 → %73.6, 9 → %25.4). Doğru tahminlerin güveni %97-100, hatalı olanların %74-80 idi.
 
 ![Tahminler](own_digits_prediction.png)
 
