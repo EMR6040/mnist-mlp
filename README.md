@@ -48,22 +48,29 @@ Mimari: 784 → 256 (ReLU) → 128 (ReLU) → 10. Toplam 235.146 parametre.
 Train loss 0.30'dan 0.01'e düzenli düştü, ancak validation loss epoch 7'de en düşük değerine (0.0855) ulaşıp sonra dalgalanarak yükseldi. Train accuracy (%99.7) ile validation accuracy (%97.7) arasındaki fark, modelin eğitim verisini ezberlemeye başladığını (overfitting) gösteriyor. Validation loss kötüleşirken validation accuracy yaklaşık %97.5'te kaldı: loss modelin kararlılığını da ölçtüğü için, yanlış tahminlerde aşırı özgüven loss'u artırabilir. Test sonuçları validation'a çok yakın olduğundan model seçimi test verisine iyi genelleniyor.
 
 ## 4. Kendi el yazım
-![Görseller](IMG_20261028_194729.png). Beyaz kağıda kurşun kalemle yazıldı.
-![Görseller](IMG_20261028_201146.png). Beyaz kağıda keçeli kalemle yazıldı. 9'lar daha oval yazıldı.
 
-Ön işleme: gri tonlama → arka plan çıkarma (aydınlatma düzeltme) → eşikleme → çizgi kalınlaştırma → rakamları ayırma → 20 px'e ölçekleme → 28×28 tuvale ağırlık merkezine göre yerleştirme → MNIST ortalama/std ile normalizasyon.
+**Deneme 1:** Beyaz kağıda kurşun kalemle yazıldı.
 
-### Deneme 1
+![Deneme 1 - kurşun kalem](IMG_20261028_194729.png)
+
+**Deneme 2:** Beyaz kağıda keçeli kalemle yazıldı, 9'lar daha oval yazıldı.
+
+![Deneme 2 - keçeli kalem](IMG_20261028_201146.png)
+
+Ön işleme: gri tonlama → arka plan çıkarma (aydınlatma düzeltme) → eşikleme → çizgi kalınlaştırma → rakamları ayırma → 20 px'e ölçekleme → 28×28 tuvale ağırlık merkezine göre yerleştirme → MNIST ortalama/std ile normalizasyon. İki denemede de aynı ayarlar kullanıldı.
+
+### Deneme 1 sonucu
 | | |
 |---|---|
 | Beklenen | 25979701010 |
 | Tahmin | 25373701010 |
 | Doğru rakam | 9/11 (%81.8) |
 
+3. ve 5. rakamlar (9) hatalı tahmin edildi (3. rakam: 3 → %79.8, 9 ilk üçte yok; 5. rakam: 3 → %73.6, 9 → %25.4). Doğru tahminlerin güveni %97-100, hatalı olanların %74-80 idi.
 
+![Deneme 1 tahminleri](own_digits_prediction.png)
 
-### Deneme 2 (keçeli kalem, daha oval 9'lar)
-
+### Deneme 2 sonucu
 | | |
 |---|---|
 | Beklenen | 25979701010 |
@@ -76,28 +83,19 @@ Oval yazdığım ilk 9 (3. rakam) doğru tanındı (%72.6), ikinci 9 (5. rakam) 
 
 ![Deneme 2 - 9'ların MNIST ile karşılaştırması](compare_with_mnist_deneme2.png)
 
-Deneme 2'deki 28×28 görsellere baktığımda 5. rakamın (9) solunda fotoğraftaki dikey bir çizginin (kağıt kıvrımı/kenarı) ön işlemede mürekkep olarak algılanıp kırpmaya dahil edildiğini gördüm. Bu yüzden 9 küçülmüş ve model onu 4 olarak tahmin etti (%90.1; 9'a %6.8). Bu hata, modelin 9'u tanıyamamasından çok ön işleme adımından kaynaklanıyor görünüyor. Oval yazdığım 3. rakam (9) ise MNIST 9'larına benzer biçimde kırpıldı ve doğru tanındı (%72.6), ancak 3'e de %27.4 olasılık verildi.
+Deneme 2'deki 28×28 görsellere baktığımda 5. rakamın (9) solunda fotoğraftaki dikey bir çizginin (kağıt kıvrımı/kenarı) ön işlemede mürekkep olarak algılanıp kırpmaya dahil edildiğini gördüm. Bu yüzden 9 küçülmüş ve model onu 4 olarak tahmin etti (%90.1; 9'a %6.8). Bu hata, modelin 9'u tanıyamamasından çok ön işleme adımından kaynaklanıyor görünüyor. Oval yazdığım 3. rakam (9) ise MNIST 9'larına benzer biçimde kırpıldı ve doğru tanındı (%72.6), ancak 3'e de %27.4 olasılık verildi. 7.-10. rakamlardaki hataların nedenini ayrıca incelemedim.
 
-### MNIST ile karşılaştırma
+### MNIST ile karşılaştırma (Deneme 1)
 ![Karşılaştırma](compare_with_mnist.png)
 
 Deneme 1'de 9'ların 3'e benzetilmesini, 9'ların kuyruğunun köşeli yazılmasına bağlayan bir hipotezim vardı, ama bunu doğrulayacak bir test yapmadım. Deneme 2'de oval yazdığım 9 doğru tanındı, ancak 3'e de belirgin olasılık verdi. Bu, 9/3 karışıklığının yazı şekliyle ilişkili olabileceğine işaret ediyor, fakat kesin bir sonuç değil.
 
-
-![Tahminler](own_digits_prediction.png)
-
-
-
-### MNIST ile karşılaştırma
-![Karşılaştırma](compare_with_mnist.png)
-
-9'ların köşeli olması sebebiyle, 3 veya 5'e benzetildiği düşünülmektedir.
-
 ## 5. Genel değerlendirme
-- MNIST test accuracy %97.74, kendi el yazımda %81.8 (9/11). Fark **distribution shift** ile uyumlu: eğitim verisi MNIST yazarlarının stiline ait, gerçek dünya verisi benim yazı stilimle, farklı kalem ve fotoğraf koşullarıyla geliyor.
-- 11 örnek küçük bir örneklem olduğu için %81.8 genel bir başarı oranı değil, bir gözlemdir.
-- Her iki denemede de aynı iki rakam (9) hatalı çıktı, bu yüzden hata tesadüf değil, sistematik görünüyor.
+- MNIST test accuracy %97.74 iken kendi el yazımda Deneme 1'de %81.8 (9/11), Deneme 2'de %54.5 (6/11) doğru rakam elde ettim. Fark **distribution shift** ile uyumlu: eğitim verisi MNIST yazarlarının stiline ait, gerçek dünya verisi benim yazı stilimle, farklı kalem ve fotoğraf koşullarıyla geliyor.
+- 11 rakamlık örneklemler küçük olduğu için bu oranlar genel başarı değil, birer gözlemdir.
+- İki fotoğrafta kalem, çizgi kalınlığı, 9'ların şekli ve rakamlar arası boşluk aynı anda değiştiği için düşüşün nedenini tek bir etkene bağlayamam.
+- Deneme 2'deki hataların en az biri (5. rakam), fotoğraftaki bir çizginin ön işlemede rakama dahil edilmesinden kaynaklanıyor görünüyor. Gerçek dünya verisinde başarı yalnızca modele değil, görüntü hazırlama adımına da bağlıdır.
+- Hatalı tahminlerin güveni her zaman düşük değil: Deneme 2'de 8. ve 9. rakamlar yanlış olduğu halde %98-100 güvenle tahmin edildi.
 - MLP görüntüyü 784 bağımsız piksel olarak gördüğü için çizgi kalınlığı ve piksel konumu gibi küçük değişikliklere duyarlı. Bu, CNN'e kıyasla bir sınırlılık, ama bu ödevde CNN kullanılmadı.
-- Deneme 2'deki hataların en az bir tanesi (5. rakam), fotoğraftaki bir çizginin ön işlemede rakama dahil edilmesinden kaynaklanıyor. Gerçek dünya verisinde başarı yalnızca modele değil, görüntü hazırlama adımına da bağlıdır.
-  
-NOT: Repoyu colabde açmanız tavsiye edilir!
+
+**NOT:** Repoyu Colab'da açmanız tavsiye edilir.
