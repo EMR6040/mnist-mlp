@@ -4,7 +4,7 @@
 **Ad Soyad:** Emrullah Yeşilkaya  **Öğrenci No:** 25979701010
 
 ## 1. Çalıştırma
-`mnist_mlp.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir. Veri otomatik indirilir. Hazır eğitilmiş model kullanılmamıştır, CNN kullanılmamıştır.
+`Yapay_Sinir_Ağları_HW1.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir.
 
 ## 2. Veri ayrımı
 | Küme | Adet | Kullanım |
