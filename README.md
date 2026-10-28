@@ -1,7 +1,7 @@
 # mnist-mlp
 # MNIST ile MLP Tabanlı El Yazısı Rakam Tanıma
 
-**Emrullah Yeşilkaya:**  **Öğrenci No:** 25979701010 
+**Ad Soyad:** Emrullah Yeşilkaya  **Öğrenci No:** 25979701010
 
 ## 1. Çalıştırma
 `mnist_mlp.ipynb` dosyası Google Colab'da (T4 GPU) baştan sona çalıştırılabilir. Veri otomatik indirilir. Hazır eğitilmiş model kullanılmamıştır, CNN kullanılmamıştır.
